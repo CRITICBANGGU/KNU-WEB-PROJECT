@@ -8,8 +8,8 @@ String login_id = (String) session.getAttribute("login_id");
 <meta charset="UTF-8">
 <title>친구 관리</title>
 <style>
-    .content-wrap{width: 400px;position: absolute; left:50%; top:25%; transform: translate(-50%, -50%); text-align:center;}
-    #lbl-friends{font-size:30px; text-align: center;}
+    .content-wrap{width: 400px;  text-align:center;}
+ 
     #find-btn{height: 40px; width: 100%;}
     .friends-list{list-style: none; margin:0px; padding: 0px; width: 100%;}
     .friend{ margin-bottom:5px; padding: 5px 0px 5px 5px; border: 1px solid #cacaca; text-align: left;}
@@ -82,8 +82,10 @@ String login_id = (String) session.getAttribute("login_id");
 	
 	function deleteFriend(i){
 		createRequest2();
-		
+		var friendList = document.getElementById("friends-list");
 		var friend = document.getElementById("friend" + i).innerText;
+		var Dfriend = document.getElementById("friend" + i);
+		friendList.removeChild(Dfriend);
         //마지막 세션 아이디
 		var url = "deleteFriend.jsp?loginId=" + "aaa" + "&friendId=" + friend ;
 		request2.open("POST",url, true);
@@ -113,8 +115,7 @@ String login_id = (String) session.getAttribute("login_id");
 </head>
 <body>
     <main class="main">
-        <h1 id="lbl-friends">친구 관리</h2>
-        <hr>
+        
         <section class="content-wrap">
             <button type="button" id="find-btn" onclick="findFriends()">친구 검색</button><br><br>
             <section>

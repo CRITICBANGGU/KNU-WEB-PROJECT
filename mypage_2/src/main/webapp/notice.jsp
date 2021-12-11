@@ -80,13 +80,16 @@ String login_id = (String) session.getAttribute("login_id");
 	function YN(on, i){
 		//보낸 아이디랑 받은 아이디도 같이 보내기
 		createRequest2();
-		
+		var list = document.getElementById("request-list");
 		var friend = document.getElementById("li" + i).innerText;
+		var Dfriend = document.getElementById("li" + i);
         var yn = -1;
         if(on == 1){
         	yn = 1;
+        	list.removeChild(Dfriend);
         }else if(on == 0){
         	yn = 0;
+        	list.removeChild(Dfriend);
         }
         //마지막 세션 아이디
 		var url = "YNUpdate.jsp?YN=" + yn + "&friend_id=" + friend + "&login_id=" + "aaa";

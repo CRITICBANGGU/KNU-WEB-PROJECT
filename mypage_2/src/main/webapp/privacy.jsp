@@ -25,11 +25,11 @@
 <title>정보 변경</title>
 </head>
 <style>
-    .content-wrap{position: absolute; left:50%; top: 45%; transform: translate(-50%, -50%); text-align:center;}
-    #lbl-privacy{font-size:30px; text-align: center;}
+    .content-wrap{ text-align:center;}
+
     .fieldset-privacy{width: 350px; height: 350px;  }
     .lbl-input{float:left;}
-    #change-btn{width: 100%; height: 40px;}
+    #change-btn{width: 380px; height: 30px; float: left;}
     .input{float:left; width: 100%; margin-top: 10px; border-left-width:0; 
         border-right-width:0;border-top-width:0; border-bottom-width:1;}
     #ID{text-align:left; float: left;}
@@ -114,8 +114,6 @@
 </script>
 <body>
     <main class="main">
-        <h2 id="lbl-privacy">가입자 정보 변경</h2>
-        <hr>
         <section class="content-wrap">
         <form name="passForm">
             <fieldset class="fieldset-privacy">
@@ -131,7 +129,7 @@
                 <label class="lbl-input">비밀번호 확인 </label><br>
                 <input type="password" class="input" id="confirm-pass" name="confirm-pass">
             </fieldset><br>
-            <button type="button" value="변경" onclick="passCheck(passForm)">변경</button>  
+            <button id="change-btn" type="button" value="변경" onclick="passCheck(passForm)">변경</button>  
         </form>
         </section>  
     </main>

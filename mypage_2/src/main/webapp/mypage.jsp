@@ -8,11 +8,55 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>마이페이지</title>
 <style>
+	*{margin: 0; padding: 0;}
+	body{padding:30px;}
+	header{padding: 5px;}
+	header a{text-decoration: none;}
+	nav{margin-top: 10px; margin-bottom:20px;}
+	nav ul{
+		list-style: none;
+		border-top: 1px solid black;
+		border-bottom: 1px solid black;
+		text-align: center;
+	}
+	nav ul li{
+		display: inline;
+	}
+	nav ul li a{
+		text-decoration: none;
+		color: black;
+		line-height: 3em;
+		text-transform: uppercase;
+	}
+	nav ul li a: hover{text-decoration: underline;}
+	#left{
+		float: left;
+		width: 10em;
+		margin-right: 1em;
+	}
+	#left ul{list-style:none;}
+	#left ul li{
+		background-color: #3f3f3f;
+		padding: 5px 10px;
+		border-bottom: 1px solid black;
+	}
+	#left ul li a{
+	color: white;
+	text-decoration: none;}
+	#left ul li:hover{
+		background-color: red;
+	}
+	#main{
+	float: left;
+	}
+	
+    /*
     .content-wrap{position: absolute; left:50%; top:30%; transform: translate(-50%, -50%); text-align:center;}
     #lbl-mypage{font-size:30px; text-align: center;}
     #privacy-btn{height: 50px; width: 100%;}
     #friends-btn{height: 50px; width: 100%;}
     .friends-btn-wrap{margin-top: 5px;}
+    */
 </style>
 <script>
     function clickNotice(){
@@ -22,6 +66,36 @@
 </script>
 </head>
 <body>
+	<header>
+		<h1>
+			<!--  a로 첫 시작 화면 가도록 -->
+			<a href="privacy.jsp">시작 화면으로 이동</a>
+		</h1>
+	</header>
+	<nav>
+		<ul>
+			<!--  다른 기능들 -->
+			<li><a href="privacy.jsp">기능1</a>
+			<li><a href="privacy.jsp">기능2</a>
+		</ul>
+	</nav>
+	<aside id="left">
+		<ul>
+			<li><a href="privacy.jsp" target="iframe">정보 변경</a>
+			<li><a href="friends.jsp" target="iframe">친구 목록</a>
+			<li><a href="notice.jsp" target="iframe">받은 요청</a>
+		</ul>
+	</aside>
+	<section id="main">
+		<article>
+			<iframe name="iframe" src="privacy.jsp" frameborder="0" width="440" height="800"></iframe>
+		</article>
+	</section>
+	
+	
+	
+	
+	<!-- 
     <main class="main">
         <h1 id="lbl-mypage">마이페이지</h2>
             <hr>
@@ -40,5 +114,7 @@
             </section>
         </section>
       </main>
+      -->
+      
 </body>
 </html>
