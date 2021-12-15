@@ -1,0 +1,130 @@
+:root {
+    --main-color: #50746c;
+    --point-color: #e7b34d;
+    --white-color: #ffffff;
+    --sub-color: #edddc4;
+    --black-color: #000000;
+}
+
+body {
+    margin: 0;
+    font-family: 'Source Sans Pro';
+}
+
+a {
+    text-decoration: none;
+}
+
+/* css 초기화 */
+h3,
+h4 {
+    margin: 0;
+}
+
+ul{
+    list-style: none;
+}
+
+.fa-laugh {
+    color: var(--point-color);
+    font-size: 40px;
+    margin-right: 10px;
+}
+
+.head {
+    z-index: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    background-color: var(--main-color);
+    padding: 8px 12px;
+}
+
+.logoAndName {
+    display: flex;
+    font-size: 25px;
+    align-items: center;
+}
+
+.head_navbar {
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+    font-size: 20px;
+}
+
+.head_navbar li {
+    padding: 8px 12px;
+}
+
+.head_navbar li:hover {
+    background-color: var(--point-color);
+    border-radius: 4px;
+}
+
+.navbar_toogleBtn {
+    display: none;
+    position: absolute;
+    right: 32px;
+    font-size: 24px;
+    color: var(--point-color);
+}
+
+.main_content {
+    background-color: var(--sub-color);
+    height: 1000px;
+}
+
+.intro {
+    text-align: center;
+    height:1000px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.copyright{
+    display: flex;
+}
+
+.copyright li{
+    padding: 8px 12px;
+}
+
+@media screen and (max-width:768px) {
+    .head {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 8px 24px;
+    }
+
+    .head_navbar {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .head_navbar li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .navbar_toogleBtn {
+        display: block;
+    }
+
+    .head_navbar.active {
+        display: flex;
+    }
+    .copyright{
+        display: flex;
+        flex-direction: column;
+    }
+    .bar{
+        display: none;
+    }
+}
