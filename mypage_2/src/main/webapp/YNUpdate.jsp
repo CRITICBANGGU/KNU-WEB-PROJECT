@@ -2,23 +2,17 @@
 <%@ page import="mypage_2.memberDAO" %>
 <%@ page import="java.sql.*, javax.sql.*, javax.naming.*" %>
 <%request.setCharacterEncoding("utf-8");%>
-String login_id = (String) session.getAttribute("login_id");
 <%
 	int yn = Integer.parseInt(request.getParameter("YN"));
 	String friendId = request.getParameter("friend_id");
-	System.out.println(friendId);
-	//login id 파라메타 받은거
+	String loginId = request.getParameter("login_id");
+	//오류나면loginId 세션으로 변경
 	int state = 0;
 	if(yn==1){
-		state = memberDAO.setYN(1, friendId, "aaa");
+		state = memberDAO.setYN(1, friendId, loginId);
 	}else if(yn == 0){
-		state = memberDAO.setYN(0, friendId, "aaa");
+		state = memberDAO.setYN(0, friendId, loginId);
 	}
 	
-	
-// 	if(state == 2){
-// 		out.print("2,삭제");
-// 	}
 
-	
 %>

@@ -2,9 +2,9 @@
 <%@ page import="java.sql.*, javax.sql.*, javax.naming.*" %>
 <%
 	request.setCharacterEncoding("utf-8");	
-	String login_id = (String) session.getAttribute("login_id");
-	String login_name = (String) session.getAttribute("login_name");
-	String login_pass = (String) session.getAttribute("login_pass");
+	String login_id = (String) session.getAttribute("userId");
+	String login_name = (String) session.getAttribute("userName");
+	String login_pass = (String) session.getAttribute("userPassword");
 	
 	
 	//데베연동
@@ -84,10 +84,7 @@
 			return;
 		}
 		
-		//form.method="POST";
-		//form.action="change.jsp";
-		//form.target = "param";
-			//form.submit();
+	
 		var url = "change.jsp?name=" + name.value + "&newPass=" + newPass.value;
 		request.open("POST",url, true);
 		

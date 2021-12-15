@@ -6,14 +6,13 @@
 <%
 	String sendId = request.getParameter("S_id");
 	String receiveId = request.getParameter("R_id");
-	System.out.println(sendId + receiveId);
 	int state = 0;
 	String result = "";
 	
-	state = memberDAO.requestFriends("test", receiveId, "");
+	state = memberDAO.requestFriends(sendId, receiveId, "");
 	
-	if(state != 0){
-		out.print("1");
-	}
+// 	if(state != 0){
+// 		out.print("1");
+// 	}
 	
 %>

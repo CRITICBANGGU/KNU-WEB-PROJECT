@@ -11,7 +11,6 @@
 	String result = "";
 	int state = 0;
 	state = memberDAO.friendsDelete(loginId, friendId);
-	System.out.println(state);
 	
 	
 %>

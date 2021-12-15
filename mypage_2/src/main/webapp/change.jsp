@@ -4,10 +4,9 @@
 <%request.setCharacterEncoding("utf-8");%>
 
 <%
-	String login_id = (String) session.getAttribute("login_id");
+	String login_id = (String) session.getAttribute("userId");
 	String newName = request.getParameter("name");
 	String newPass = request.getParameter("newPass");
-	System.out.println(newName + newPass);
 	int state = 0;
 	state = memberDAO.modifyPass(login_id, newName, newPass);
 	

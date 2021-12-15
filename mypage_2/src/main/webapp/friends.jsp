@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
 request.setCharacterEncoding("utf-8");
-String login_id = (String) session.getAttribute("login_id");
+String login_id = (String) session.getAttribute("userId");
 %>
 <html>
 <head>
@@ -33,10 +33,9 @@ String login_id = (String) session.getAttribute("login_id");
 		//session id로 데베 검색해서 친구목록 불러오기
 		
 		createRequest();
-	    //login_id로 바꾸기
-		var url = "loadFriend.jsp?loginId=" + "aaa" ;
+		var url = "loadFriend.jsp?loginId=" + login_id ;
 		request.open("POST",url, true);
-		var qry = "loginId=" + "aaa" ;
+		var qry = "loginId=" + login_id ;
 		
 		request.onreadystatechange = updatePage;
 		request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -59,12 +58,10 @@ String login_id = (String) session.getAttribute("login_id");
 				newfriend.setAttribute("id", "friend" + i);
 				newfriend.setAttribute("class", "friend");
 				
-				
 				newfriend.innerHTML = response[i] + "<img style='float:right;' src='delete.png' onclick='deleteFriend(" + i + ")'>";
 				friendList.appendChild(newfriend);
 	        }
 	        
-	
 		}
 	}
 	
@@ -86,10 +83,9 @@ String login_id = (String) session.getAttribute("login_id");
 		var friend = document.getElementById("friend" + i).innerText;
 		var Dfriend = document.getElementById("friend" + i);
 		friendList.removeChild(Dfriend);
-        //마지막 세션 아이디
-		var url = "deleteFriend.jsp?loginId=" + "aaa" + "&friendId=" + friend ;
+		var url = "deleteFriend.jsp?loginId=" + login_id + "&friendId=" + friend ;
 		request2.open("POST",url, true);
-		var qry = "loginId=" + "aaa" + "&friendId=" + friend ;
+		var qry = "loginId=" + login_id + "&friendId=" + friend ;
 		
 		request2.onreadystatechange = updatePage2;
 		request2.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -100,24 +96,23 @@ String login_id = (String) session.getAttribute("login_id");
 		if(request2.readyState==4){
 			
 			var responsetext = request.responseText;
-			//var response = responsetext.split(",");
-			
-// 			if(response.length == 2){
-				
-// 			}
+
 		}
 	}
 	
     function findFriends(){
         window.open("findFriends.jsp", "childForm", "width=300, height=220, left=600, top=100");
     }
+    
+	
 </script>
 </head>
 <body>
     <main class="main">
         
         <section class="content-wrap">
-            <button type="button" id="find-btn" onclick="findFriends()">친구 검색</button><br><br>
+            <button type="button" id="find-btn" onclick="findFriends()">친구 검색</button><br>
+            <br>
             <section>
                 <ul class="friends-list" id="friends-list">
                 

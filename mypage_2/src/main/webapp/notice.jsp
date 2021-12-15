@@ -2,7 +2,7 @@
 <%@ page import="java.sql.*, javax.sql.*, javax.naming.*" %>
 <%
 request.setCharacterEncoding("utf-8");
-String login_id = (String) session.getAttribute("login_id");
+String login_id = (String) session.getAttribute("userId");
 %>
 <html>
 <head>
@@ -28,14 +28,12 @@ String login_id = (String) session.getAttribute("login_id");
 	}
 	
 	function requestList(){
-		//session id로 데베 검색해서 받은 요청 불러오기
-		//ox에 따라서 YN값 집어넣기
 		
 		createRequest();
         
-		var url = "requestUpdate.jsp?loginId=" + <%= login_id %>;
+		var url = "requestUpdate.jsp?loginId=" + login_id;
 		request.open("POST",url, true);
-		var qry = "loginId=" + <%= login_id %>;
+		var qry = "loginId=" + login_id;
 		
 		request.onreadystatechange = updatePage;
 		request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -56,7 +54,8 @@ String login_id = (String) session.getAttribute("login_id");
     			var newList = document.createElement("li");
     			newList.setAttribute("id", "li" + i);
     			newList.setAttribute("class", "li");
-    			newList.innerHTML = response[i] + '<input style="float:right;" type="button" value="X" onclick="YN(0,' + i +')">'+
+    			newList.innerHTML = response[i] + 
+    			'<input style="float:right;" type="button" value="X" onclick="YN(0,' + i + ')">'+
     			'<input style="float:right;" type="button" value="O" onclick="YN(1,' + i + ')">';
     			list.appendChild(newList);
             }
@@ -64,6 +63,7 @@ String login_id = (String) session.getAttribute("login_id");
 
 		}
 	}
+	
 	
 	var request2 = null;
 	
@@ -77,7 +77,7 @@ String login_id = (String) session.getAttribute("login_id");
 			alert("Error creating request object!");
 	}
 	
-	function YN(on, i){
+	function YN(on, i, select){
 		//보낸 아이디랑 받은 아이디도 같이 보내기
 		createRequest2();
 		var list = document.getElementById("request-list");
@@ -92,9 +92,9 @@ String login_id = (String) session.getAttribute("login_id");
         	list.removeChild(Dfriend);
         }
         //마지막 세션 아이디
-		var url = "YNUpdate.jsp?YN=" + yn + "&friend_id=" + friend + "&login_id=" + "aaa";
+		var url = "YNUpdate.jsp?YN=" + yn + "&friend_id=" + friend + "&login_id=" + login_id ;
 		request2.open("POST",url, true);
-		var qry = "YN=" + yn + "&friend_id=" + friend + "&login_id=" + "aaa";
+		var qry = "YN=" + yn + "&friend_id=" + friend + "&login_id=" + login_id ;
 		
 		request2.onreadystatechange = updatePage2;
 		request2.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -108,10 +108,7 @@ String login_id = (String) session.getAttribute("login_id");
 			
 			var responsetext = request.responseText;
 			var response = responsetext.split(",");
-			
-// 			if(response.length == 2){
-				
-// 			}
+
 		}
 	}
 

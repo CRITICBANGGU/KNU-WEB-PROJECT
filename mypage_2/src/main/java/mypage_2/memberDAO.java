@@ -15,10 +15,8 @@ public class memberDAO {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		int Prows = 0;
-		System.out.println(id+ name+ pass);
 		try{
 			con = getConnection();
-			
 			
 			String sql="UPDATE test SET name=?, pass=? WHERE id=?";
 			pstmt = con.prepareStatement(sql);
@@ -28,7 +26,6 @@ public class memberDAO {
 			pstmt.setString(3, id);
 			
 			Prows = pstmt.executeUpdate();
-			
 			
 			} catch(Exception e){
 				System.out.println("메소드 오류" + e.toString());
@@ -65,7 +62,6 @@ public class memberDAO {
 			ResultSet result = pstmt.executeQuery();
 			while(result.next()) {
 				res = result.getString(3);
-				System.out.println(res);
 			}
 			result.close();
 			
@@ -97,15 +93,13 @@ public class memberDAO {
 		try{
 			con = getConnection();
 			
-			String sql="INSERT INTO request VALUE (?, ?, ?)";
+			String sql="INSERT INTO request VALUE (?, ?)";
 			pstmt = con.prepareStatement(sql);
 			
 			pstmt.setString(1, SId);
 			pstmt.setString(2, RId);
-			pstmt.setString(3, YN);
 			
 			Rrows = pstmt.executeUpdate();;
-			
 			
 			} catch(Exception e){
 				System.out.println("메소드 오류" + e.toString());
@@ -142,13 +136,8 @@ public class memberDAO {
 			ResultSet result = pstmt.executeQuery();
 			while(result.next()) {
 				requestResult += (result.getString(1) + " ");
-				//System.out.println(requestResult);
-				
 			}
-			
 			result.close();
-			
-			
 			} catch(Exception e){
 				System.out.println("메소드 오류" + e.toString());
 			} finally{
@@ -173,17 +162,15 @@ public class memberDAO {
 		PreparedStatement pstmt = null;
 		PreparedStatement pstmt2 = null;
 		int SRows = 0;
-		//System.out.println(friend);
+		
 		try{
 			con = getConnection();
 			if(yn==1) {
 				String sql="INSERT INTO friendList VALUE (?,?)";
 				
 				pstmt = con.prepareStatement(sql);
-				
 				pstmt.setString(1, login);
 				pstmt.setString(2, friend);
-				//pstmt.setString(3, friend);
 				SRows = pstmt.executeUpdate();
 				
 				String sql2="DELETE from request WHERE S_request=?;";
@@ -241,7 +228,6 @@ public class memberDAO {
 			
 			while(result.next()) {
 				resultLoad += (result.getString(2) + " ");
-				System.out.println(resultLoad);
 			}
 			result.close();
 			

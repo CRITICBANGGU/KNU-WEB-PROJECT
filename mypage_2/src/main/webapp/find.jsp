@@ -15,8 +15,4 @@
 		out.print("1,2");
 	}
 	
-	
-	//if(result != ""){
-	//	out.print(result);
-	//}
 %>

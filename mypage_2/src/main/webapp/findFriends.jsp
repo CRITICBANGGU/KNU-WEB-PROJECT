@@ -2,7 +2,7 @@
 <%
 	request.setCharacterEncoding("utf-8");	
 	
-	String login_id = (String) session.getAttribute("login_id");
+	String login_id = (String) session.getAttribute("userId");
 	
 %>
 <%@ page import="mypage_2.memberDAO" %>
@@ -109,10 +109,10 @@
 		createRequest2();
 		var findId = document.getElementById("find-input");
 		
-//login_id 값 넣기
-		var url = "request.jsp?S_id=" + <%=login_id%> + "&R_id=" + findId.value;
+
+		var url = "request.jsp?S_id=" + login_id + "&R_id=" + findId.value;
 		request2.open("POST",url, true);
-		var qry = "S_id=" + <%=login_id%> + "&R_id=" + findId.value;
+		var qry = "S_id=" + login_id + "&R_id=" + findId.value;
 		
 		request2.onreadystatechange = updatePage2;
 		request2.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -131,29 +131,6 @@
 		}
 	}
 	
-    
-    //검색한 아이디 검색해서 있으면 목록 불러와서 li로 추가
-    //추가 버튼도 같이 생성
-//     function find(){
-        
-//         	var findId = document.getElementById("find-input");
-//             var result = document.getElementById("result-wrap");
-//             var addFriend = document.getElementById("add-friend");
-//             addFriend.innerHTML = findId;
-            
-//         if(state == 0){
-//             var addBtnWrap = document.getElementById("add-btn-wrap");
-//             var addBtn = document.createElement("button");
-//             addBtn.setAttribute("id", "add-btn")
-//             addBtn.innerText = "요청하기";
-//             //요청하기 눌렀을 경우 이벤트
-//             addBtn.onclick = function(e){
-//                 window.close();
-//             }
-//             addBtnWrap.appendChild(addBtn);
-//         }
-//         state = 1;
-//     }
 
 </script>
 </head>
