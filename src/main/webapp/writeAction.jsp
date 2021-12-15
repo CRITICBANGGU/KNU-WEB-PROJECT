@@ -18,6 +18,10 @@
         if(session.getAttribute("userID") != null) {
             userID = (String) session.getAttribute("userID");
         }
+        int boardID = 0;
+		if (request.getParameter("boardID") != null){
+			boardID = Integer.parseInt(request.getParameter("boardID"));
+		}
         if(userID == null) {
             PrintWriter script = response.getWriter();
             script.println("<script>");

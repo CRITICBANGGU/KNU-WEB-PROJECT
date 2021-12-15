@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ page import="comment.CommentDAO" %>
 <%@ page import="java.io.PrintWriter" %>
+<%@ page import="java.io.File" %>
 <% request.setCharacterEncoding("UTF-8"); %>
 <jsp:useBean id="comment" class="comment.Comment" scope="page" />
 <jsp:setProperty name="comment" property="commentText" />
@@ -9,7 +10,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>게시판</title>
+<title>맛집 게시판</title>
 </head>
 <body>
 	 <%
@@ -21,9 +22,9 @@
 		if (request.getParameter("boardID") != null){
 			boardID = Integer.parseInt(request.getParameter("boardID"));
 		}
-						
-		//String commentText = request.getParameter("commentText");
-		//comment.setCommentText(commentText);
+		
+		String commentText = request.getParameter("commentText");
+		comment.setCommentText(commentText);
 		
 	 	if(userID == null){
 	 		PrintWriter script = response.getWriter();
@@ -62,7 +63,8 @@
 			 		script.println("</script>");
 			 	}
 		 		else{
-		 			PrintWriter script = response.getWriter();
+			 		PrintWriter script = response.getWriter();
+			 		
 			 		script.println("<script>");
 			 		script.println("location.href=document.referrer;");
 			 		script.println("</script>");

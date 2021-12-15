@@ -35,6 +35,7 @@
 			script.println("location.href = 'bs.jsp'");
 			script.println("</script>");
 		}
+		
 		Bbs bbs = new BbsDAO().getBbs(bbsID);
 		if (!userID.equals(bbs.getUserID())) {
 			PrintWriter script = response.getWriter();

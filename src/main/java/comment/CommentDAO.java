@@ -134,7 +134,7 @@ public class CommentDAO {
 				cmt.setCommentAvailable(rs.getInt(7));
 				return cmt;
 			}
-		}catch(Exception e) {
+		}catch(Exception e) { 
 			e.printStackTrace();
 		}
 		return null;

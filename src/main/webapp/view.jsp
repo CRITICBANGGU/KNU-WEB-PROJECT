@@ -154,7 +154,7 @@
 	</div>
 	<div class="container">
 		<div class="form-group">
-			<form method="post" action="commentAction2.jsp?bbsID=<%=bbsID%>&boardID=<%=boardID%>">
+			<form method="post" action="commentAction.jsp?bbsID=<%=bbsID%>&boardID=<%=boardID%>">
 				<table class="table table-striped" style="text-align: center; border: 1px solid #dddddd">
 					<tr>
 						<td style="border-bottom: none;" valign="middle">

@@ -61,6 +61,7 @@ public class BbsDAO {
 			pstmt.setString(4, getDate());
 			pstmt.setString(5, bbsContent);
 			pstmt.setInt(6, 1);
+
 			
 			return pstmt.executeUpdate();
 		} catch (Exception e) {
@@ -148,7 +149,7 @@ public class BbsDAO {
 	}
 	
 	public int delete(int bbsID) {
-		String SQL = "UPDATE BBS SET bbsAvailable = 0 WHERE bbsID = ?";
+		String SQL = "DELETE FROM BBS WHERE bbsID = ?";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
 			pstmt.setInt(1, bbsID);
