@@ -29,6 +29,8 @@
 		int result = userDAO.login(user.getUserID(), user.getUserPassword());
 		if(result==1){
 			session.setAttribute("userID", user.getUserID());
+			session.setAttribute("userName", user.getUserName());
+			session.setAttribute("userPassword", user.getUserPassword());
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
 			script.println("location.href='main.jsp'");

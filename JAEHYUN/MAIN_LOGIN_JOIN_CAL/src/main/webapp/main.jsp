@@ -39,7 +39,7 @@
         <ul class="head_navbar">
             <li class="home"><a href="./main.jsp">HOME</a></li>
             <li class="login"><a href="./logoutAction.jsp" id="loginCH">LOGOUT</a></li>
-            <li class="join"><a href="./join.jsp">MYPAGE</a></li>
+            <li class="join"><a href="./mypage.jsp">MYPAGE</a></li>
         </ul>
         <%
         	}
