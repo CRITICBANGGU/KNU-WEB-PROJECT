@@ -33,6 +33,7 @@
 			session.setAttribute("userPassword", user.getUserPassword());
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
+			script.println("alert('"+user.getUserID()+"')");
 			script.println("location.href='main.jsp'");
 			script.println("</script>");
 		}

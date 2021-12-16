@@ -8,6 +8,11 @@ public class Doit {
 	private String userID;
 	JSONObject dolist = new JSONObject();
 	JSONObject friendslist = new JSONObject();
+	private String date;
+	private String startT;
+	private String endT;
+	private String doIT;
+	
 	public String getUserID() {
 		return userID;
 	}
@@ -25,6 +30,30 @@ public class Doit {
 	}
 	public void setFriendslist(JSONObject friendslist) {
 		this.friendslist = friendslist;
+	}
+	public String getDate() {
+		return date;
+	}
+	public void setDate(String date) {
+		this.date = date;
+	}
+	public String getStartT() {
+		return startT;
+	}
+	public void setStartT(String startT) {
+		this.startT = startT;
+	}
+	public String getEndT() {
+		return endT;
+	}
+	public void setEndT(String endT) {
+		this.endT = endT;
+	}
+	public String getDoIT() {
+		return doIT;
+	}
+	public void setDoIT(String doIT) {
+		this.doIT = doIT;
 	}
 	
 }

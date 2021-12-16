@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
         headerToolbar: {
             left: 'prev,next today',
             center: 'title',
-            right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek addEventButton'
+            right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek addEventButton,deleteButton'
         },
 
         customButtons: {
@@ -43,6 +43,20 @@ document.addEventListener('DOMContentLoaded', function () {
                             start: startTdone,
                             end: endTdone
                         })
+                        calendar.addEvent()
+                    }
+                }
+            },
+            deleteButton:{
+                text:'DELETE',
+                click:function(){
+                    var YN= prompt("일정을 수정하시겠습니까?(y/n)");
+                    if(YN=='y'){
+                        var del = prompt("일정을 삭제하십니까?(y/n)");
+                        if(del=='n'){
+        
+                        }
+                        else
                     }
                 }
             }
@@ -67,6 +81,7 @@ document.addEventListener('DOMContentLoaded', function () {
             console.log(obj);
         },
         select: function (arg) { // 캘린더에서 드래그로 이벤트를 생성할 수 있다.
+           
             var title = prompt('Event Title:');
             if (title) {
                 calendar.addEvent({

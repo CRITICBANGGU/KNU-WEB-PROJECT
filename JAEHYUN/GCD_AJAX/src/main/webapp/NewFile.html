@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<script>
+	var request = null;
+	function createRequest(){
+		try{
+			request = new XMLHttpRequest();
+		}
+		catch (failed){
+			request = null;
+		}
+		if(request == null)
+			alert("ERROR creating request object!");
+	}	
+	
+	function getGCD(){
+		createRequest();
+		var num1 = document.getElementById("num1");
+		var num2 = document.getElementById("num2");
+		var url = "index.jsp?Num1="+num1.value+"&Num2="+num2.value;
+		request.open("GET",url,true);
+		request.onreadystatechange = updatePage;
+		request.send(null);
+	}
+	
+	function updatePage(){
+		if(request.readyState==4){
+			var num1 = document.getElementById("num1");
+			var num2 = document.getElementById("num2");
+			var responsetext = request.responseText;
+			var response = responsetext.split(",");
+			var result = document.getElementById("result");
+			var time = document.getElementById("time");
+			result.innerHTML = "GCD("+num1.value+","+num2.value+"): "+response[0];
+			time.innerHTML = response[1]+"현재"+response[2]+"번 실행되었습니다.";
+		}
+	}
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+	<h2>GCD 프로그램</h2>
+    <form action="index.jsp" method="get">
+        GCD 프로그램
+        <hr>
+        
+        NUM 1 : <input type="text" name="Num1" id="num1">
+        NUM 2 : <input type="text" name="Num2" id="num2">
+        <input type="button" onclick="getGCD()" value="GCD">
+		<hr>
+		<span id="result"></span>
+		<span id="time"></span>
+    </form>
+</body>
+</html>
